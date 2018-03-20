@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "fs-extra": "^5.0.0",
+    "looks-same": "^3.3.0",
     "webshot-factory": "^0.5.2"
   }
 }

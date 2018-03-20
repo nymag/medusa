@@ -9,5 +9,6 @@ module.exports = {
   list: 'examples.txt',
   // "warmer" url, so when loaded, the browsers can cache scripts
   warmerUrl: 'http://www.vulture.com/2018/03/big-little-lies-season-two-first-look.html',
+  compareHost: 'localhost.vulture.com',
   screenshotsDir: 'screenshots'
 };
