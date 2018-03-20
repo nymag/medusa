@@ -20,8 +20,10 @@ A tool that takes screenshots of multiple web sites kinda fast. Basically a nice
 ## WARNINGS
 - if you're using a different url scheme than site-date-articleslug, the tool will error out
 - I've tried setting concurrency to 10, which led to memory leak errors but maybe you'll have better luck?? (-Amy)
+- the tool will take a screenshot of the ENTIRE height of the page, this might to lead to images that are several mb big
 
 ## Roadmap
 - visual diffing!!!
+- `stdin` maybe???
 - accepting urls with different schemas than what is on New York Magazine
 - accepting evergreen urls
