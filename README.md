@@ -24,4 +24,4 @@ A tool that takes screenshots of multiple web sites kinda fast. Basically a nice
 ## Roadmap
 - visual diffing!!!
 - accepting urls with different schemas than what is on New York Magazine
-- acceptiong evergreen urls
+- accepting evergreen urls
