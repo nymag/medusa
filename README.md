@@ -1,29 +1,40 @@
 Medusa
 ======
 
-A tool that takes screenshots of multiple web sites kinda fast. Basically a nicer wrapper for [webshot-factory](https://github.com/ashubham/webshot-factory), which in turn is relying on [chrome headless](https://github.com/GoogleChrome/puppeteer). Designed for new york magazine sites (the tool is expecting a certain url schema).
+A command-line tool that takes screenshots of multiple web sites kinda fast. Also does visual diffing! Basically a nicer wrapper for [webshot-factory](https://github.com/ashubham/webshot-factory), which in turn is relying on [chrome headless](https://github.com/GoogleChrome/puppeteer).
 
 ## How to use
+- add some urls to a text file. All that is required is that each url you want to take a screenshot of is on its own line.
+- configure the tool to your liking via `config.js`. You can figure the name of the folder where you're saving screenshots, how you want to name the screenshots (see `config.generateName()`) and settings for webshot-factory.
 
-- add some urls to `examples.txt` or a different textfile. It doesn't need to have to be `.txt`! All that is required is that each url you want to take a screenshot of is on its own line. Just make sure you point this tool to the correct file in `config.js`
-- configure the tool to your liking via `config.js`. You can figure the name of the folder where you're saving screenshots, the text file you want to use, and settings for webshot-factory.
-- run `npm install`
-- run `node index.js`
 
-*Medusa* will use the slug name (sans date) as the file name. So if you're taking a screenshot of `http://www.vulture.com/2018/03/tag-trailer-jon-hamm-jake-johnson-ed-helms-hit-each-other.html`, the filename of the screenshot will be `tag-trailer-jon-hamm-jake-johnson-ed-helms-hit-each-other.png`.
+1. run `npm install`
+2. run `node index.js -f FILENAME`
+
+## Comparing screenshots
+to do compare screenshots (aka visual diffing), run:
+`node index.js -f FILENAME.YAML -d`
+
+The file of urls has to be a yaml file and has to be formatted like this:
+```
+-
+  reference: http://www.vulture.com/2018/03/generic-network-tv-drama-quiz.html
+  tester: http://www.vulture.com/2018/03/youtube-red-what-to-know-about-the-streaming-service.html
+-
+  reference: http://www.vulture.com/2018/03/sxsw-2018-british-takover-showcase-spotlights-afro-swing.html
+  tester: http://www.vulture.com/2018/03/pacific-rim-uprising-review.html
+
+```
 
 ### Use cases
 
 - quick visual qa of multiple pages
 - checking that ads are loading on multiple pages
+- doing design research
 
 ## WARNINGS
-- if you're using a different url scheme than site-date-articleslug, the tool will error out
 - I've tried setting concurrency to 10, which led to memory leak errors but maybe you'll have better luck?? (-Amy)
 - the tool will take a screenshot of the ENTIRE height of the page, this might to lead to images that are several mb big
 
 ## Roadmap
-- visual diffing!!!
 - `stdin` maybe???
-- accepting urls with different schemas than what is on New York Magazine
-- accepting evergreen urls

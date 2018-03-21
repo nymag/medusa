@@ -1,3 +1,5 @@
+const url = require('url');
+
 module.exports = {
   // width and height of the screenshot,
   width: 1050,
@@ -5,9 +7,14 @@ module.exports = {
   // # of headless browsers we want running concurrently, any more than 5 might
   // cause memory leak errors
   numBrowsers: 2,
-  // text file that has our list of urls we want screenshots of
-  list: 'examples.txt',
-  // "warmer" url, so when loaded, the browsers can cache scripts
-  warmerUrl: 'http://www.vulture.com/2018/03/big-little-lies-season-two-first-look.html',
-  screenshotsDir: 'screenshots'
+  // where we're saving screenshots
+  screenshotsDir: 'screenshots',
+  // where we're saving diff images
+  diffDir: 'diffs',
+  // a custom function for generating filenames, feel free to edit this to your
+  // liking. Needs to return a string
+  generateName: function(target){
+    // return url.parse(target).pathname.replace(/\//g, '_').replace('.html','');
+    return `screenshot-${Date.now()}`;
+  }
 };
