@@ -1,2 +1,9 @@
+# NPM modules registry
 node_modules/
+package-lock.json
+
+# Generated content
 screenshots/
+
+# Webstorm IDE
+.idea/
