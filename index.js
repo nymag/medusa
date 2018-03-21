@@ -4,11 +4,10 @@ const config = require('./config'),
   readline = require('readline'),
   rl = readline.createInterface({
     input: fs.createReadStream(config.list)
-}),
+  }),
   urls = [];
 
-
-rl.on('line', function (line) {
+rl.on('line', (line) => {
   urls.push(line);
 });
 
