@@ -17,6 +17,9 @@ function readYAML(filepath) {
   return h((fs.readFile(filepath, 'utf8')));
 }
 
+fs.ensureDirSync(config.screenshotsDir);
+fs.ensureDirSync(config.diffDir);
+
 if (argv.f) {
 
   if (argv.d) {
